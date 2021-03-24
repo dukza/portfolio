@@ -1,0 +1,442 @@
+@import './short.scss';
+@import url('./../font/NHU/stylesheet.css');
+@import url('./../font/SF/style.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap');
+
+//브랜드
+.text-brand-blue{
+    color: $brand-blue;
+}
+//효과
+.sFadeWrap{
+    overflow: hidden;
+    display: inline-block;
+    .sFade{
+        display: inline-block;
+        // perspective: 300px;
+    }    
+}
+// 테마
+.indexBg{
+    background: linear-gradient(to bottom, #111, #222 75%, #000 );
+    color: $zone !important;
+    min-height: 100%;
+    display: flex;
+}
+.subBg{
+    background-color: rgb(229, 229, 229);
+    color: $ink-darker !important;
+}
+//공통
+html{
+    display: flex;
+}
+body{
+    overflow-y: hidden;
+    word-break: break-all !important;
+    width: 100%;
+}
+body.is-ready{
+    overflow-y: auto;
+}
+#root{
+    height: 100%;
+    position: relative;
+}
+.pageTitleWrap{
+    font-size: 4.4rem!important; line-height: 1!important;font-weight: 300;
+}   
+.pageContent{
+    font-size: 1.6rem;white-space: pre-line;font-weight: 200;}
+.sectionTitle{
+    font-size: 2.6rem; font-weight: 400; margin-bottom: 0.4rem;
+    i{
+        margin-left: 0.8rem;
+    }
+}  
+.pageSubTitle{
+    font-weight: 600; font-size: 1.4rem; 
+}
+$navSize:9.6rem !important;
+// 상단
+#header{
+    mix-blend-mode: difference;
+    height: $navSize;
+    #nav{        
+        display: flex;
+        align-items: flex-start;
+        .logo{
+            text-decoration: none;
+            font-size: 1.6rem;line-height: 1;
+            z-index: 99;
+            span{
+                display: block;
+            }                  
+        }
+        .menu{
+            font-size: 2.4rem;
+            margin-left: auto;
+            transition: opacity 0.3s ease-in-out;
+        }        
+    }
+    #nav-web{ 
+        position: absolute;
+        right: 0;
+        visibility: hidden;
+        justify-content: flex-end;
+        transition: all 0.3s ease-in-out;
+        a{
+            text-decoration: none;
+            position: relative;
+            display: inline;
+            .line{
+                width: 0px; height: 1px;               
+                position: absolute; 
+                left: 0px; bottom:4px;
+                transition: all .3s ease-in-out;
+                &::after{
+                    content: '';
+                    height: 100%; width: 100%;
+                    position: absolute; 
+                    left: 0; top: 0;
+                }               
+            }
+            &:hover{
+                color: $ink-body;
+                .line::after{
+                    background-color: $ink-body;
+                }
+            }
+        }
+        a.active{
+            .line{
+                width: 12px;
+            }
+        }        
+        a:nth-child(2){
+            margin-right: 0 !important;
+        }   
+    }    
+}
+// 컨텐츠
+.project .contentWrap.intro{
+    .pageTitleWrap{
+            line-height: 1.6 !important;
+            a:hover{
+                color: $body !important;
+            }
+    }
+}
+#content{
+    .contentWrap{
+        &.intro{
+            align-items: center;
+            justify-content: center;
+                .pageTitleWrap{
+                    transition: all 0.5s ease-in-out !important;
+                    color: $light;
+                    .cate{
+                        display: none;
+                    }
+                }
+                .pageSubTitle{
+                    color: $light;
+                }    
+        }
+        // 서브
+        &.sub{
+            // padding-top: $navSize;
+            justify-content: center;
+            .pageIndex{
+                color: $ink-ink;letter-spacing: -.1em;font-size: 40rem;line-height: 1.6em; 
+                margin-left: -56% !important;
+                display: flex;
+                .pageIndexWrap{
+                    display: flex;
+                    .sFade{
+                        display: flex;
+                    }
+                }
+            }
+           
+            .pageTitle{
+                background-color: $ink-ink;
+                color: $lighter;
+                .line {
+                    position: relative;
+                    box-sizing: border-box;
+                    .lineWrap{
+                        position: absolute;
+                        bottom: 50%;
+                        right: 0;
+                        left: 0;
+                        height: 1px;
+                        background-color: $ink-body;                        
+                    }
+                }  
+                .pageTitleWrap{
+                    color: $lighter!important;
+                }  
+                .pageSubTitle{
+                    color: $lighter!important;
+                }                
+                .pageContent{
+                    color: $lighter!important;
+                }  
+            }
+            .pageTitleWrap{
+                color: $ink-ink!important;
+            }  
+            .pageSubTitle{
+                color: $ink-ink!important;
+            }                
+            .pageContent{
+                color: $ink-ink!important;
+            }               
+            #fixdBg{
+                height: 100vh;
+                background-image: url('./../images/endsubaru.jpg');
+                background-attachment: fixed;
+                background-size: cover;
+                background-position: center;
+            }     
+        }        
+    }
+
+
+}
+// 하단
+#footer{
+    position: fixed;
+    bottom: 4rem;
+    left: 0;    
+    display: none;
+    transition: all 0.3s ease-in-out !important;
+    span{
+        font-size: 1.3rem;font-weight: 200;
+        color: $zone;
+    }        
+}
+#bottomNav{
+    height: $navSize;
+    display: flex; align-items: center;
+    .bottomNavWrap{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .projectName{
+            font-size: 1.6rem !important;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .projectNum{
+            font-size: 1.4rem !important;font-weight: 300;
+            position: absolute;
+            right:1.6rem;
+        }
+        a{
+            color: $ink-ink;
+            &:hover{
+                color: $ink-dark;
+            }
+        }
+    }
+
+}
+
+// 모바일
+@media (max-width:576px) { 
+    body{
+        font-size: 1.4rem;
+    }
+
+}
+// 공통
+@mixin sectionSpace($value) {
+    &-t{
+        margin-top: $value !important;
+    }
+    &-b{
+        margin-bottom: $value !important;
+    }
+}
+@mixin sectionHandle($value) {
+    &-0{
+        @include sectionSpace($value*0);
+    } 
+    &-01{
+        @include sectionSpace($value);
+    } 
+    &-02{
+        @include sectionSpace($value * 2);
+    } 
+    &-03{
+        @include sectionSpace($value * 3);
+    } 
+    &-03{
+        @include sectionSpace($value * 4);
+    } 
+}
+.sectionSpace{
+    @include sectionHandle(2.4rem)
+}
+@media (max-width: 576px) {
+    .xs{
+        &-sectionSpace{
+            @include sectionHandle(3.2rem) 
+        }
+    }
+
+}
+@media (max-width: 768px) {
+    #content{
+        margin-top: 9.6rem !important;
+        padding-bottom: 4rem !important;
+    }   
+}
+// 패드
+@media (min-width: 768px) {  
+    $navSize:16rem !important;
+    .sectionSpace{
+        @include sectionHandle(3.2rem) 
+    }
+    .md{
+        &-sectionSpace{
+            @include sectionHandle(3.2rem) 
+        }
+    }
+    #header{
+        height: $navSize;
+        #nav{
+            align-items: center;    
+            .logo{
+                font-size: 1.5rem !important;
+            }  
+            .menu {
+                opacity: 0;
+            } 
+        }
+        #nav-web{
+            visibility: visible !important;
+            display: flex !important;
+            a{
+                font-size: 1.8rem !important;
+                margin-right: 4rem !important;
+            }
+        } 
+    }
+    // 컨텐츠  
+    .project{
+        .contentWrap{
+            &.intro{
+                .pageTitleWrap{
+                        overflow: hidden;
+                        .icon{
+                            font-weight: zone;
+                            margin-left: 1.2rem;
+                            display: inline-block;
+                            opacity: 0;
+                            transform: translateX(-48px);
+                            transition: all .2s .2s cubic-bezier(0.25, 1, 0.5, 1);
+                        }
+                        &:hover{
+                            .icon{
+                                opacity: 1;
+                                transform: translateX(0px);
+                            }
+                        } 
+                }
+            }
+        }
+
+    }    
+    #content{
+        .contentWrap{
+            // 서브
+            &.sub{
+                // padding-top: $navSize;       
+                .pageIndex{
+                    margin-top: 20% !important;
+                    margin-left: -44% !important;
+                    .pageIndexWrap{
+                        font-size: 64rem !important;
+                    }                   
+                }
+            }
+        }
+    }
+    // 하단
+    #footer{
+        display: block;
+        opacity: 1 !important; 
+    }
+    #bottomNav{
+        height: $navSize;
+        .bottomNavWrap{
+            justify-content: center !important;
+            .projectName{
+                font-size: 2rem !important;
+            }
+        }        
+    }
+}
+
+// 패드 pro
+@media (min-width: 1024px) { 
+    #header{     
+        #nav-web{
+            a{
+                margin-right: 6rem !important;
+            }           
+        }         
+    }
+    // 컨텐츠
+    #content{
+        .contentWrap{
+            &.sub{
+                .pageIndex{
+                    margin-top: 13% !important;
+                    margin-left: -20% !important;                 
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1280px) { 
+    .sectionSpace{
+        @include sectionHandle(4.8rem) 
+    }
+    .xl{
+        &-sectionSpace{
+            @include sectionHandle(3.2rem) 
+        }
+    }
+    #content{
+        .contentWrap{
+            &.sub{
+                .pageIndex{
+                    margin-top: 9% !important;
+                    .pageIndexWrap{
+                        font-size: 72rem !important;
+                    }                   
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1480px) { 
+    #content{
+        .contentWrap{
+            &.sub{
+                .pageIndex{
+                    padding-top: 6% !important;
+                    .pageIndexWrap{
+                        font-size: 80rem !important;
+                    }                   
+                }
+            }
+        }
+    }
+}  
